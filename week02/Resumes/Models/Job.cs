@@ -11,7 +11,7 @@ namespace Resumes.Models
 
         public void Present()
         {
-            System.Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}.");
+            Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}.");
         }
     }
 }

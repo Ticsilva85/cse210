@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Net;
-
 
 namespace Resumes.Models
 {
@@ -13,8 +11,8 @@ namespace Resumes.Models
 
         public void Display()
         {
-            System.Console.WriteLine($"{_name}.");
-            System.Console.WriteLine("Jobs: ");
+            Console.WriteLine($"{_name}.");
+            Console.WriteLine("Jobs: ");
 
             foreach (Job job in _jobs)
             {
