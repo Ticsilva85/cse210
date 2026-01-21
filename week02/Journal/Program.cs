@@ -11,6 +11,19 @@ class Program
         Journal.Models.Journal journal = new Journal.Models.Journal();
         PromptGenerator promptGenerator = new PromptGenerator();
 
+
+        // TITLE OF THE PROGRAM //
+        string title = "JOURNAL PROGRAM"; // Added for better UX 
+        int width = 33;
+
+        Console.WriteLine(new string('=', width));
+        Console.WriteLine(title.PadLeft((width + title.Length) / 2));
+        Console.WriteLine(new string('=', width));
+        Console.WriteLine();
+
+        Console.WriteLine("Welcome the Journal Program!");
+
+        // MENU //
         while(showMenu) // If showMenu is false, while won't be executed
         {
             Console.WriteLine("\nPlease select one of the following choices: ");
@@ -27,7 +40,7 @@ class Program
             {
                 case "1":
                     string prompt = promptGenerator.GetRandomPrompt();
-                    Console.WriteLine(prompt);
+                    Console.WriteLine($"\n{prompt}");
 
                     Console.WriteLine("Your entry: ");
                     string response = Console.ReadLine();
@@ -41,25 +54,30 @@ class Program
                     break;
 
                 case "2":
-                    Console.WriteLine("Busca de cliente");
+                    journal.DisplayAll();
                     break;
 
                 case "3":
-                    Console.WriteLine("Apagar de cliente");
+                    Console.Write("Enter the filename: ");
+                    string loadFile = Console.ReadLine();
+                    journal.LoadFromFile(loadFile);
+                    Console.WriteLine("Journal Loaded successfully.");
                     break;
 
                 case "4":
-                    Console.WriteLine("Apagar de cliente");
+                    Console.Write("Enter the filename: ");
+                    string filename = Console.ReadLine();
+                    journal.SaveToFile(filename);
+                    Console.WriteLine("Journal saved successfully!");
                     break;
 
                 case "5":
-                    Console.WriteLine("Encerrar");
-                    showMenu = false; // Com esse comando os códigos depois do while serão executados
-                    // Environment.Exit(0); // Com o Enviroment.Exit() o programa encerra e não executa os comandos fora do loop
+                    Console.WriteLine("Quit");
+                    showMenu = false;
                     break;
 
                 default:
-                    Console.WriteLine("opção Inválida");
+                    Console.WriteLine("Invalid option");
                     break;
             }
         }
