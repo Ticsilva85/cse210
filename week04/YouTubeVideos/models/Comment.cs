@@ -7,6 +7,16 @@ namespace YouTubeVideos.models
 {
     public class Comment
     {
-        
+        private string _commenterName;
+        private string _text;
+
+        public Comment(string commenterName, string text)
+        {
+            _commenterName = commenterName;
+            _text = text;
+        }
+
+        public string GetCommenterName() => _commenterName;
+        public string GetText() => _text;
     }
 }
